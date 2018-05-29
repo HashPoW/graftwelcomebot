@@ -1,0 +1,4 @@
+en:
+  greeting_message: "Hi! Telegram is awesome!"
+  farewell_message: "Bye! I'll miss you :("
+  welcome_message_saved: "New welcome message saved:\n\n%{message}"

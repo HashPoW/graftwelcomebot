@@ -1,0 +1,70 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (4.2.10)
+      activesupport (= 4.2.10)
+      builder (~> 3.1)
+    activerecord (4.2.10)
+      activemodel (= 4.2.10)
+      activesupport (= 4.2.10)
+      arel (~> 6.0)
+    activesupport (4.2.10)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    arel (6.0.4)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    builder (3.2.3)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    equalizer (0.0.11)
+    faraday (0.13.1)
+      multipart-post (>= 1.2, < 3)
+    geocoder (1.4.4)
+    geokit (1.11.0)
+    i18n (0.7.0)
+    ice_nine (0.11.2)
+    inflecto (0.0.2)
+    json (2.1.0)
+    mini_portile2 (2.3.0)
+    minitest (5.10.3)
+    multipart-post (2.0.0)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    pg (0.21.0)
+    telegram-bot-ruby (0.8.4)
+      faraday
+      inflecto
+      virtus
+    thread_safe (0.3.6)
+    timezone (1.2.8)
+    tzinfo (1.2.3)
+      thread_safe (~> 0.1)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord (~> 4.2, >= 4.2.5)
+  geocoder
+  geokit
+  i18n (~> 0.7.0)
+  json
+  nokogiri
+  pg
+  telegram-bot-ruby
+  timezone
+
+BUNDLED WITH
+   1.16.0
