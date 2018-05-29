@@ -1,68 +1,18 @@
-# Ruby Telegram Bot boilerplate
+# GRFT BOT
 ![Ruby and Telegram](https://hsto.org/files/914/1c2/d17/9141c2d17d074b8d8758a955f7fd575a.png)
 
 ## Features
-* Ability to save some data to a local database (Postgres by default)
-* Automatic logging of received and sent message
-* Easy internationalization using i18n gem
-* Already created class for creating [custom keyboards](https://core.telegram.org/bots#keyboards)
-* Database logging
-* Separate classes for all the functional, so it's very easy to customize something
+* Send personalized welcome messages
+* Send latest news from [graft blog](https://www.graft.network/blog/) 
+* Send latest videos from YT channels([1](https://www.youtube.com/channel/UCV-5A5mbnu64pPRUm1r_-5A) & [2](https://www.youtube.com/channel/UCoMSpYdhQDDhhRcyilyyqtw)) about 
+* Have several useful commands to get data from [coinmarketcap](https://coinmarketcap.com/)
 
-## Usage
-
-### Running the bot
-For the first you need to create `secrets.yml` where your bot unique token will be stored and `database.yml` where database credentials will be stored. I've already created samples for you, so you can easily do:
-
-```sh
-cp config/database.yml.sample config/database.yml
-cp config/secrets.yml.sample config/secrets.yml
-```
-
-Then you need to fill your [Telegram bot unique token](https://core.telegram.org/bots#botfather) to the `secrets.yml` file and your database credentials to `database.yml`.
-
-After this you need to create and migrate your database:
-
-```sh
-rake db:create db:migrate
-```
-
-Great! Now you can easily start your bot just by running this command:
-
-```sh
-bin/bot
-```
-
-## Directory layout
-
-### Source
-
-```sh
-└── ruby-telegram-bot-boilerplate
-    ├── bin                              # executables folder
-    │   └── bot                          # main executable file
-    ├── config                           # folder with configs
-    │   ├── database.yml.sample          # sample database configuration
-    │   ├── secrets.yml.sample           # sample credentials file
-    │   └── locales.yml                  # file with i18n locales
-    ├── db                               # database related stuff
-    │   ├── migrate                      # migrations
-    │   └── 001_create_users.rb          # migration for creating table 'users'
-    ├── lib                              # helper libs folder
-    │   ├── app_configurator.rb          # class for application configuration
-    │   ├── database_connector.rb        # class for connecting to database
-    │   ├── message_responder.rb         # main class for responding to message
-    │   ├── message_sender.rb            # simple class just for message sending
-    │   └── reply_markup_formatter.rb    # class for creating custom keyboards
-    ├── models                           # database models folder
-    │   └── user.rb                      # active record User model
-    ├── Gemfile                          # Gemfile
-    ├── Gemfile.lock                     # Gemfile.lock
-    ├── README.md                        # Readme file
-    └── Rakefile                         # Rakefile with tasks for database management
-```
-
-Some more specific info you can also find [here](https://github.com/atipugin/telegram-bot-ruby).
+## Possible commands
+* /price - will post the price of GRFT coin 
+* /supply - will post the circulating supply, total supply, and max supply of GRFT coin. 
+* /exchanges - will post the list of exchanges that GRFT is traded on 
+* /news - will post a link to the latest blog post from [graft blog](https://www.graft.network/blog/)  
+* /help - will post a list of commands and their descriptions
 
 ## Contributing
 
