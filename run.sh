@@ -1,5 +1,5 @@
 #!/bin/bash
-dir = $(pwd)
+dir=$(pwd)
 while sleep 60
 do
 if pgrep -f bin/bot >/dev/null

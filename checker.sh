@@ -1,5 +1,5 @@
 #!/bin/bash
-dir = $(pwd)
+dir=$(pwd)
 while sleep 3600
 do
  pkill -f bin/checker

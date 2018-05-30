@@ -2,15 +2,19 @@ module DirectMessage
 
 	class Coinmarket
 
-		API_ENDPOINT = "https://api.coinmarketcap.com/v2/ticker/2571/"
+		API_ENDPOINT = "https://api.coinmarketcap.com/v2/ticker/2571/?convert=BTC"
 		EXCH_ENDPOINT = "https://coinmarketcap.com/currencies/graft/#markets"
 		
 		def self.price
-			get_data["quotes"]["USD"]["price"]
+			[get_data["quotes"]["USD"]["price"],get_data["quotes"]["BTC"]["price"]]
 		end
 
 		def self.supply
-			get_data["circulating_supply"]
+			[
+				get_data["circulating_supply"],
+				get_data["total_supply"],
+				get_data["max_supply"]
+			]
 		end
 
 		def self.exchanges
