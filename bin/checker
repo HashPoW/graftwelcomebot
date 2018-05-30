@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+
+require 'telegram/bot'
+
+require './lib/message_responder'
+require './lib/app_configurator'
+require './lib/types/youtube'
+require './lib/types/website'
+require 'nokogiri'
+require 'open-uri'
+
+Dir['./models/*'].each {|file| require file unless File.directory?(file)} 
+
+config = AppConfigurator.new
+config.configure
+
+token = config.get_token
+logger = config.get_logger
+
+ActiveRecord::Base.logger = nil
+
+def send_message(bot,text, chat_id)
+	bot.api.send_message(chat_id: chat_id, text: text, parse_mode: "HTML", disable_web_page_preview:false)
+rescue =>e
+	puts _method_
+	puts e.message
+end
+
+Telegram::Bot::Client.run(token) do |bot|
+  loop do
+  	updates = Update.find_or_create_by(id:1)
+  	puts yt_1 = Youtube.check_first_channel
+  	puts yt_2 = Youtube.check_second_channel
+  	puts weblink = Website.check
+
+  	puts updates.yt_channel_1 != yt_1
+  	if updates.yt_channel_1 != yt_1
+  		Chat.all.each do |chat|
+  			text = "<b>New video has been published on #{Youtube.first_channel_title}</b>\n\nhttps://www.youtube.com/watch?v=#{yt_1}"
+  			send_message(bot,text,chat.id)
+  		end
+  		updates.update_attribute(:yt_channel_1,yt_1)
+  	end	
+
+  	puts updates.yt_channel_2 != yt_2
+  	if updates.yt_channel_2 != yt_2
+  		Chat.all.each do |chat|
+  			text = "<b>New video has been published on #{Youtube.second_channel_title}</b>\n\nhttps://www.youtube.com/watch?v=#{yt_2}"
+  			send_message(bot,text,chat.id)
+  		end
+  		updates.update_attribute(:yt_channel_2,yt_2)
+  	end	
+
+		puts updates.website_link != weblink
+		if updates.website_link != weblink
+  		Chat.all.each do |chat|
+  			text = "<b>New post has been published</b>\n\n#{weblink}"
+  			send_message(bot,text,chat.id)
+  		end
+  		updates.update_attribute(:website_link,weblink)
+  	end	
+
+    puts 'Sleeping'
+    sleep 300
+  end
+end

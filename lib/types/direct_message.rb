@@ -11,10 +11,10 @@ module DirectMessage
         when /\A\/welcome_off/    
             turn_off_welcome  
         when /\A\/help/i
-          text = "/price - will post the price of GRFT coin\n"+ 
-                 "/supply - will post the circulating supply, total supply, and max supply of GRFT coin.\n"+
-                 "/exchanges - will post the list of exchanges that GRFT is traded on\n"+
-                 "/news - will post a link to the latest blog post from"
+          text = "/price - <i>will post the price of GRFT coin</i>\n"+ 
+                 "/supply - <i>will post the circulating supply, total supply, and max supply of GRFT coin.</i>\n"+
+                 "/exchanges - <i>will post the list of exchanges that GRFT is traded on</i>\n"+
+                 "/news - <i>will post a link to the latest blog post from</i>"
           request(text:text)      
         when /\A\/price/i
             request(text:"Current price: <b>#{Coinmarket.price} $</b>")
@@ -23,9 +23,7 @@ module DirectMessage
         when /\A\/exchanges/i
             request(text:"Exchange markets:\n\n<b>#{Coinmarket.exchanges}</b>")
         when /\A\/news/i 
-            page = Nokogiri::HTML(open('https://www.graft.network/blog/'))
-            last_article_link = page.css('article a').first['href']
-            text = "<b>Lastest news:</b>\n\n#{last_article_link}"
+            text = "<b>Lastest news:</b>\n\n#{Website.check}"
             request(text:text)
         end
 	end

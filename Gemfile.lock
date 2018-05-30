@@ -51,6 +51,8 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
+    yt (0.28.5)
+      activesupport
 
 PLATFORMS
   ruby
@@ -65,6 +67,7 @@ DEPENDENCIES
   pg
   telegram-bot-ruby
   timezone
+  yt (~> 0.28.0)
 
 BUNDLED WITH
    1.16.0
