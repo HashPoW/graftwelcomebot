@@ -17,7 +17,7 @@ module DirectMessage
                  "/news - <i>will post a link to the latest blog post from</i>"
           request(text:text)      
         when /\A\/price/i
-            request(text:"Current price: \n\n<b>#{Coinmarket.price[0]} USD\n#{'%.6f' % Coinmarket.price[1]} BTC</b>")
+            request(text:"Current price: \n\n<b>#{Coinmarket.price[0]} USD\n#{'%.12f' % Coinmarket.price[1]} BTC</b>")
         when /\A\/supply/i  
             request(text:"Circulating Supply: <b>#{Coinmarket.supply[0]} GRFT</b>\n"+
                          "Total Supply: <b>#{Coinmarket.supply[1]} GRFT</b>\n"+
