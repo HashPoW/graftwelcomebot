@@ -14,10 +14,11 @@ module DirectMessage
           text = "/price - <i>will post the price of GRFT coin</i>\n"+ 
                  "/supply - <i>will post the circulating supply, total supply, and max supply of GRFT coin.</i>\n"+
                  "/exchanges - <i>will post the list of exchanges that GRFT is traded on</i>\n"+
-                 "/news - <i>will post a link to the latest blog post from</i>"
+                 "/news - <i>will post a link to the latest blog post </i>\n"+
+                 "/help - <i>will post this list of bot commands</i>"
           request(text:text)      
         when /\A\/price/i
-            request(text:"Current price: \n\n<b>#{Coinmarket.price[0]} USD\n#{'%.12f' % Coinmarket.price[1]} BTC</b>")
+            request(text:"Current price: \n\n<b>#{Coinmarket.price[0]} USD\n#{'%.8f' % Coinmarket.price[1]} BTC</b>")
         when /\A\/supply/i  
             request(text:"Circulating Supply: <b>#{Coinmarket.supply[0]} GRFT</b>\n"+
                          "Total Supply: <b>#{Coinmarket.supply[1]} GRFT</b>\n"+
@@ -27,6 +28,9 @@ module DirectMessage
         when /\A\/news/i 
             text = "<b>Lastest news:</b>\n\n#{Website.check}"
             request(text:text)   
+        when /\A\/donate/i 
+            text = "https://graft.community"
+            request(text:text)       
         end
 	end
 
