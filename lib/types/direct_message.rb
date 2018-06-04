@@ -15,6 +15,7 @@ module DirectMessage
                  "/supply - <i>will post the circulating supply, total supply, and max supply of GRFT coin.</i>\n"+
                  "/exchanges - <i>will post the list of exchanges that GRFT is traded on</i>\n"+
                  "/news - <i>will post a link to the latest blog post </i>\n"+
+                 "/donate - <i>support the GRAFT community initiative!</i>\n"+
                  "/help - <i>will post this list of bot commands</i>"
           request(text:text)      
         when /\A\/price/i
