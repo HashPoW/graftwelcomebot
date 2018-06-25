@@ -12,6 +12,7 @@
 * /supply - will post the circulating supply, total supply, and max supply of GRFT coin. 
 * /exchanges - will post the list of exchanges that GRFT is traded on 
 * /news - will post a link to the latest blog post from [graft blog](https://www.graft.network/blog/)  
+* /donate - support the GRAFT community initiative!
 * /help - will post a list of commands and their descriptions
 
 ## Contributing
