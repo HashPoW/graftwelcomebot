@@ -1,0 +1,5 @@
+adapter: postgresql
+database: yourdbname
+encoding: unicode
+pool: 5000
+timeout: 5000
