@@ -32,7 +32,7 @@ module DirectMessage
 			def self.parse_website_for_exchanges
 				page = Nokogiri::HTML(open(EXCH_ENDPOINT))
 				list = page.css("table#markets-table tbody a.link-secondary")
-				list.map do |a|
+				list.uniq.map do |a|
 					a.text
 				end.join(",\n")
 			end
